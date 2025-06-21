@@ -295,8 +295,8 @@ impl<'a> Text<'a> {
         if self.quad.absolute {
             let (cx, cy) = crate::canvas::camera::xy(); // Retrieve camera coordinates.
             let (w, h) = crate::canvas::resolution(); // Get canvas dimensions.
-            dx += cx as i32 - (w as i32 / 2); // Center the sprite horizontally.
-            dy += cy as i32 - (h as i32 / 2); // Center the sprite vertically.
+            dx += (cx - w as f32 / 2.0) as i32; // Center the sprite horizontally.
+            dy += (cy - h as f32 / 2.0) as i32; // Center the sprite vertically.
         }
 
         // Set the fixed positioning flag

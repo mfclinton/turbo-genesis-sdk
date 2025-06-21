@@ -789,8 +789,8 @@ impl<'a> Sprite<'a> {
         if !self.props.fixed && self.props.absolute {
             let (cx, cy) = crate::canvas::camera::xy(); // Retrieve camera coordinates.
             let (w, h) = crate::canvas::resolution(); // Get canvas dimensions.
-            dx += cx as i32 - (w as i32 / 2); // Center the sprite horizontally.
-            dy += cy as i32 - (h as i32 / 2); // Center the sprite vertically.
+            dx += (cx - w as f32 / 2.0) as i32; // Center the sprite horizontally.
+            dy += (cy - h as f32 / 2.0) as i32; // Center the sprite vertically.
         }
 
         // Determine the destination width (dw) and height (dh) by either using provided dimensions
