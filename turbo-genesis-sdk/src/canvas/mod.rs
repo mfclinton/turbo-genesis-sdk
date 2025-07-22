@@ -23,6 +23,7 @@ pub mod sprite;
 pub mod text;
 pub mod text_box;
 pub mod utils;
+pub mod lights;
 
 /// Create a new sprite from the given file stem.
 ///

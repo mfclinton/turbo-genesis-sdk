@@ -53,3 +53,20 @@ pub fn get_surface_shader(_ptr: *mut u8, _len: *mut u32) -> i32 {
 pub fn reset_surface_shader() -> i32 {
     0
 }
+
+pub fn set_num_lights(_count: u32) {}
+
+pub fn set_light(
+    _index: u32,
+    _x: f32,
+    _y: f32,
+    _z: f32,
+    _intensity: f32,
+    _r: f32,
+    _g: f32,
+    _b: f32,
+    _radius: f32,
+) {
+}
+
+pub fn set_ambient_light(_r: f32, _g: f32, _b: f32) {}

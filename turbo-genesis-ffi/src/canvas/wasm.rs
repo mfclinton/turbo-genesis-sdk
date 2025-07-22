@@ -45,6 +45,12 @@ unsafe extern "C" {
     unsafe fn _get_surface_shader(ptr: *mut u8, len: *mut u32) -> i32;
     #[link_name = "reset_surface_shader"]
     unsafe fn _reset_surface_shader() -> u32;
+    #[link_name = "set_num_lights"]
+    unsafe fn _set_num_lights(count: u32);
+    #[link_name = "set_light"]
+    unsafe fn _set_light(index: u32, x: f32, y: f32, z: f32, intensity: f32, r: f32, g: f32, b: f32, radius: f32);
+    #[link_name = "set_ambient_light"]
+    unsafe fn _set_ambient_light(r: f32, g: f32, b: f32);
 }
 
 pub fn clear(fill: u32) {
@@ -137,4 +143,30 @@ pub fn get_surface_shader(ptr: *mut u8, len: *mut u32) -> i32 {
 
 pub fn reset_surface_shader() -> u32 {
     unsafe { _reset_surface_shader() }
+}
+
+pub fn set_num_lights(count: u32) {
+    unsafe { _set_num_lights(count) }
+}
+
+pub fn set_light(
+    index: u32,
+    x: f32,
+    y: f32,
+    z: f32,
+    intensity: f32,
+    r: f32,
+    g: f32,
+    b: f32,
+    radius: f32,
+) {
+    unsafe {
+        _set_light(index, x, y, z, intensity, r, g, b, radius);
+    }
+}
+
+pub fn set_ambient_light(r: f32, g: f32, b: f32) {
+    unsafe {
+        _set_ambient_light(r, g, b);
+    }
 }
