@@ -464,11 +464,13 @@ impl<'a> TextBox<'a> {
 
     /// Draw by rendering each glyph sprite via `utils::sprite::draw`.
     pub fn draw(&self) {
-        let flags = if self.quad.fixed {
+        let mut flags = if self.quad.fixed {
             flags::POSITION_FIXED
         } else {
             0
         };
+        flags |= flags::SPRITE_COVER;
+
         let x0 = self.quad.x;
         let y0 = self.quad.y;
         let box_w = self.quad.w as i32;
